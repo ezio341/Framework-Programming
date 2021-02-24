@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import Test from './Test'
+import App from './component1/App';
+import Test from './component1/Test'
+import Login from './component2/Login'
 import reportWebVitals from './reportWebVitals';
 
 const Hello = () => {
@@ -19,7 +19,7 @@ class StatefulComponent extends React.Component{
 }
 
 ReactDOM.render(
-  <App/>,
+  <Login/>,
   document.getElementById('root')
 );
 
