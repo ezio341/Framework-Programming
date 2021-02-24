@@ -2,14 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Test from './Test'
 import reportWebVitals from './reportWebVitals';
 
 const Hello = () => {
   return <p>Hello</p>
 }
+function HelloComponent() {
+  return <p> HelloComponent</p>
+}
+
+class StatefulComponent extends React.Component{
+  render(){
+    return <p>Stateful Component</p>
+  }
+}
 
 ReactDOM.render(
-  <Hello/>,
+  <App/>,
   document.getElementById('root')
 );
 
