@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './component1/App';
 import Test from './component1/Test'
 import Login from './component2/Login'
+import HelloComponent from './component1/HelloComponent'
 import reportWebVitals from './reportWebVitals';
 
 const Hello = () => {
   return <p>Hello</p>
 }
-function HelloComponent() {
-  return <p> HelloComponent</p>
-}
+// function HelloComponent() {
+//   return <p> HelloComponent</p>
+// }
 
 class StatefulComponent extends React.Component{
   render(){

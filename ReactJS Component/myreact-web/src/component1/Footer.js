@@ -1,5 +1,5 @@
 import React from 'react';
-var Footer = (props) => {
+const Footer = (props) => {
     return (
         <div>
             <h3>Footer Page</h3>
