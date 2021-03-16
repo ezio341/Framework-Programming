@@ -1,0 +1,41 @@
+.body{
+    text-align: center;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid lightgray;
+    margin: 10px 10px;
+    box-shadow: 5px 5px 10px 5px rgba(200, 200, 200, 100);
+    justify-content: center;
+}
+.center{
+    text-align: center;
+}
+.btn-green{
+    background-color: rgb(50, 232, 183);
+    border-radius: 6px;
+    border: none;
+    padding: 5px;
+    margin: 6px;
+    cursor: pointer;
+}
+.btn-white{
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 6px;
+    cursor: pointer;
+}
+.text-center{
+    text-align: center;
+}

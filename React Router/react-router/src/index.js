@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './component2/Login'
+import './index.css';
+import BasicRoute from './RouterApp/BasicRoute';
+import ParamRouter from './RouterApp/ParamRouter';
+import NestingRoute from './RouterApp/NestingRoute';
+import Redirects from './RouterApp/Redirects'
+import Main from './ecommerceApp/MainPage'
 import reportWebVitals from './reportWebVitals';
 
-
-
 ReactDOM.render(
-  <Login/>,
+  <React.StrictMode>
+    <Main/>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
