@@ -18,9 +18,15 @@ class Table extends Component{
             <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                 <nav style={{marginTop: "60px"}}>
                     <ol className="breadcrumb" style={{cursor:"pointer"}}>
-                        <li className={"breadcrumb-item "+(this.props.visibilityFilter === SHOW_ALL? 'active':'')} onClick={() => this.props.setVisibilityFilter(SHOW_ALL)}>All</li>
-                        <li className={"breadcrumb-item "+(this.props.visibilityFilter === SHOW_COMPLETED? 'active':'')} onClick={() => this.props.setVisibilityFilter(SHOW_COMPLETED)}>Completed</li>
-                        <li className={"breadcrumb-item "+(this.props.visibilityFilter === SHOW_ACTIVE? 'active':'')} onClick={() => this.props.setVisibilityFilter(SHOW_ACTIVE)}>Active</li>
+                        <li className={"breadcrumb-item "+(this.props.visibilityFilter === SHOW_ALL? 'active':'')} 
+                            onClick={() => this.props.setVisibilityFilter(SHOW_ALL)}>
+                                All</li>
+                        <li className={"breadcrumb-item "+(this.props.visibilityFilter === SHOW_COMPLETED? 'active':'')} 
+                            onClick={() => this.props.setVisibilityFilter(SHOW_COMPLETED)}>
+                                Completed</li>
+                        <li className={"breadcrumb-item "+(this.props.visibilityFilter === SHOW_ACTIVE? 'active':'')} 
+                            onClick={() => this.props.setVisibilityFilter(SHOW_ACTIVE)}>
+                                Active</li>
                     </ol>
                 </nav>
                 {this.props.todos.length !== 0 ? (
@@ -38,13 +44,15 @@ class Table extends Component{
                                     {todo.text} {todo.completed === true ? "(completed)" : ""}
                                 </td>
                                 <td>
-                                    <span className="fa fa-minus-circle" onClick={() => this.props.deleteToDo(todo.id)} style={{
-                                        color: "white",
-                                        fontSize: "20pt",
-                                        marginRight: "20px"}}/>
-                                    <span className="fa fa-check-circle" onClick={() => this.props.toggleToDo(todo.id)} style={{ 
-                                        color: "white", 
-                                        fontSize: "20pt"}}/>
+                                    <span className="fa fa-minus-circle" onClick={
+                                        () => this.props.deleteToDo(todo.id)} style={{
+                                            color: "white",
+                                            fontSize: "20pt",
+                                            marginRight: "20px"}}/>
+                                    <span className="fa fa-check-circle" onClick={
+                                        () => this.props.toggleToDo(todo.id)} style={{ 
+                                            color: "white", 
+                                            fontSize: "20pt"}}/>
                                 </td>
                             </tr>
                         ))}

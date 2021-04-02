@@ -85,7 +85,7 @@ function LoginPage(){
         })
     }
     return(
-        <div>
+        <div className='center'>
             <p>Login to access Cart Page</p>
             <button onClick={login}>Login</button>
         </div>
@@ -112,7 +112,7 @@ function Home(){
     return(
         <div className="center">
             <h3>Welcome to Toko Kita</h3>
-            <img src="https://th.bing.com/th/id/OIP.9Yyho2E6EoP6SO4qdXg1aQHaEK?w=321&h=180&c=7&o=5&pid=1.7" height="80%" width="80%"></img>
+            <img src="https://th.bing.com/th/id/OIP.9Yyho2E6EoP6SO4qdXg1aQHaEK?w=321&h=180&c=7&o=5&pid=1.7" height="50%" width="50%"></img>
         </div>
     )
 }

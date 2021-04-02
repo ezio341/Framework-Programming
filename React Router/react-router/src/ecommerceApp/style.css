@@ -35,6 +35,7 @@
     padding: 5px;
     margin: 6px;
     cursor: pointer;
+    text-decoration: none;
 }
 .text-center{
     text-align: center;
