@@ -43,12 +43,6 @@ class MainPage extends Component {
         }
     };
 
-    componentDidMount(){
-        if(this.props.pageNum){
-            this.setState({menuSelected: this.props.pageNum})
-        }
-    }
-
     render() {
         const {collapsed, menuSelected} = this.state
         return (
@@ -62,15 +56,15 @@ class MainPage extends Component {
                 left: 0,
             }}>
                 <div className="logo" />
-                    <Menu theme="dark" defaultSelectedKeys={[menuSelected.toString()]} mode="inline">
+                    <Menu theme="dark" defaultSelectedKeys={[menuSelected]} mode="inline">
                         <SubMenu key="1" title='Shop' icon={<ShopFilled />}>
-                            <Menu.Item key="1" icon={<HomeOutlined/>}>
+                            <Menu.Item key="1.1" icon={<HomeOutlined/>}>
                                 <Link to='/'>Home</Link>
                             </Menu.Item>
-                            <Menu.Item key="2" icon={<ShoppingOutlined/>}>
+                            <Menu.Item key="1.2" icon={<ShoppingOutlined/>}>
                                 <Link to='/Products'>Products</Link>
                             </Menu.Item>
-                            <Menu.Item key="5" icon={<ShoppingOutlined/>}>
+                            <Menu.Item key="1.3" icon={<ShoppingOutlined/>}>
                                 <Link to='/About'>About</Link>
                             </Menu.Item>
                         </SubMenu>

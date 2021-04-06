@@ -39,6 +39,8 @@ export const showCart = () =>{
             .then(response => response.json())
             .then(res => {
                 dispatch({type: 'SHOW_DATA', data: res})
+            }).catch(err=>{
+                dispatch({type: 'SHOW_DATA', data: []})
             })
     } 
 }

@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { Layout, Breadcrumb, Card, Image, Button, List, Modal, Skeleton, Alert} from 'antd'
+import { Layout, Breadcrumb, Card, Image, Button, List, Modal, Skeleton, Alert, Menu, Dropdown} from 'antd'
 import {
-    StarOutlined
+    StarOutlined,
+    DownOutlined
 } from '@ant-design/icons'
 import {addCart, updateCart} from '../Actions/cartAction'
 import {connect} from 'react-redux'
@@ -41,11 +42,15 @@ class Cont extends Component {
         fetch('http://localhost:3030/products')
             .then(response => response.json())
             .then(jsonfromapi =>{
-                this.setState({
-                    products: jsonfromapi,
-                    productFilter: jsonfromapi,
-                    loading: false
-                })
+                if(jsonfromapi.length>0){
+                    this.setState({
+                        products: jsonfromapi,
+                        productFilter: jsonfromapi
+                    })
+                }
+                this.setState({loading: false})
+            }).catch(err=>{
+                this.setState({loading:false})
             })
     }
     componentDidMount(){
@@ -56,17 +61,14 @@ class Cont extends Component {
     }
     addCart(item){
         if(this.state.auth){
-            let cart = []
             fetch('http://localhost:3031/cart?productid='+item.id)
                 .then(response => response.json())
                 .then(res => {
                     let foundCart = false
-                    let cart = {}
                     if(res){
                         res.map(item=>{
                             if(item){
                                 foundCart = true
-                                cart = item
                             }
                         })
                     }
@@ -79,7 +81,6 @@ class Cont extends Component {
                 })
         }else{
             this.setState({isModalLoginVisible: true})
-            console.log(window.location)
         }
     }
 
@@ -122,10 +123,10 @@ class Cont extends Component {
                 </div>
                 <p style={{textAlign: 'right', fontSize:11}}>Stock: {item.stock}</p>
                 <p style={{fontSize: 13, textOverflow:'ellipsis', overflow: 'hidden', maxHeight:'100px', cursor:'pointer'}} onClick={()=>this.showModal(item)}>{item.desc && item.desc.substring(0, 50)+'...'}</p>
-                <h4>Rp {item.price.toLocaleString('id-ID',{minimumFractionDigits:2, maximumFractionDigits:2})}</h4>
+                <h4 style={{color: 'orange', fontSize: 18}}>Rp {item.price.toLocaleString('id-ID',{minimumFractionDigits:2, maximumFractionDigits:2})}</h4>
                 <StarOutlined/> {item.rate}
                 <div style={{textAlign:'right'}}>
-                    <Button type='ghost'  onClick={()=>this.addCart(item)} disabled={((item.stock > 0))? false: true}>Add to Cart</Button>
+                    <Button type='primary' onClick={()=>this.addCart(item)} disabled={((item.stock > 0))? false: true}>Add to Cart</Button>
                 </div>
             </Card>
         )
@@ -144,7 +145,7 @@ class Cont extends Component {
                 </div>
                 <div style={{textAlign:'right'}}><p>Stock: {Item.stock}</p></div>
                 <p>{Item.desc}</p>
-                <h4>Rp {Item.price!==undefined && Item.price.toLocaleString('id-ID', {minimumFractionDigits:2, maximumFractionDigits:2})}</h4>
+                <h4 style={{color: 'orange', fontSize: 18}}>Rp {Item.price!==undefined && Item.price.toLocaleString('id-ID', {minimumFractionDigits:2, maximumFractionDigits:2})}</h4>
                 <StarOutlined/> {Item.rate}
             </Modal>
         )
@@ -152,7 +153,26 @@ class Cont extends Component {
     onCloseAlert = (e)=>{
         this.setState({isCartAvailable: false, isAddCartSuccess: false, cartAvailableMsg:'', addCartSuccessMsg:''})
     }
-    
+    onClickSort = (key) => {
+        switch(key){
+            case 'low':
+                this.setState({productFilter: this.state.productFilter.sort((a,b)=>{return a.price - b.price})})
+                break
+            case 'high':
+                this.setState({productFilter: this.state.productFilter.sort((a,b)=>{return b.price - a.price})})
+                break
+        }
+    }
+    menu = (
+        <Menu>
+        <Menu.Item key="1" onClick={()=>this.onClickSort('low')}>
+          Price Low - High
+        </Menu.Item>
+        <Menu.Item key="2" onClick={()=>this.onClickSort('high')}>
+          Price High - Low
+        </Menu.Item>
+      </Menu>
+    )
     render() {
         const {modalItem, loading, products, productFilter, cartAvailableMsg, isCartAvailable, isAddCartSuccess, addCartSuccessMsg} = this.state
         return (
@@ -161,9 +181,15 @@ class Cont extends Component {
                 <Breadcrumb.Item>Shop</Breadcrumb.Item>
                 <Breadcrumb.Item>Products</Breadcrumb.Item>
             </Breadcrumb>
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 400, backgroundImage: 'url('+(!loading&&(products.length ===0) && EmptySVG)+')', backgroundRepeat: 'no-repeat', backgroundSize:'35%', backgroundPosition:'center'}}>
+            <div className="site-layout-background" style={{ padding: 24, minHeight: 400, backgroundImage: 'url('+(!loading&&(products.length === 0) && EmptySVG)+')', backgroundRepeat: 'no-repeat', backgroundSize:'35%', backgroundPosition:'center'}}>
                 <div style={{textAlign:'center', padding: '10px'}}>
                     {!(products.length ===0) && <Search placeholder="Search" allowClear style={{ minWidth:100, maxWidth:300, verticalAlign:'middle', marginRight:50 }} onSearch={value=> this.search(value)}/>}
+                    {products.length !== 0 &&
+                        <Dropdown overlay={this.menu}>
+                        <Button>
+                            Filter <DownOutlined/>
+                        </Button>
+                    </Dropdown>}
                 </div>
                 {isCartAvailable && <Alert type='warning' showIcon message={cartAvailableMsg} closable onClose={this.onCloseAlert}/>}
                 {isAddCartSuccess && <Alert type='success' showIcon message={addCartSuccessMsg} closable onClose={this.onCloseAlert}/>}
@@ -172,8 +198,8 @@ class Cont extends Component {
                         gutter: 16,
                         xs: 1,
                         sm: 2,
-                        md: 3,
-                        lg: 4,
+                        md: 2,
+                        lg: 3,
                         xl: 4,
                         xxl: 5,
                         }}

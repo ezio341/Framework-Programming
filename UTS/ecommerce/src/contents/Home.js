@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Layout, Breadcrumb, Image, Skeleton} from 'antd'
+import { Layout, Breadcrumb, Image} from 'antd'
 // import './style.css'
 
 const {Content} = Layout;

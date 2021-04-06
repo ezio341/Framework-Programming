@@ -87,7 +87,7 @@ class Cont extends Component {
     this.setState({totalPrice: newTotal})
     this.setState({deleteloading:true}); 
     this.props.deleteCart(item.id); 
-    setTimeout(()=>{this.props.showCart(); setTimeout(()=>{this.setState({deleteloading: false}); this.setState({carts: this.props.cart})}, 500)}, 500)
+    setTimeout(()=>{this.props.showCart(); setTimeout(()=>{this.setState({deleteloading: false}); this.setState({carts: this.props.cart})}, 200)}, 300)
   }
 
   GotoLogin = () =>{
@@ -134,7 +134,7 @@ class Cont extends Component {
               </Col>
               <Col style={{marginLeft:'10px'}}>
                 <p style={{display:'flex', textOverflow:'ellipsis', overflow: 'hidden'}}>{item.desc.substring(0,70)+'...'}</p>
-                <h4>Rp {item.price.toLocaleString('id-ID', {minimumFractionDigits:2, maximumFractionDigits:2})}</h4>
+                <h4 style={{color: 'orange', fontSize: 18}}>Rp {item.price.toLocaleString('id-ID', {minimumFractionDigits:2, maximumFractionDigits:2})}</h4>
                 <div id='item-amount'>
                   <p>Amount:
                     <Button style={{marginLeft:10, marginRight:10}} icon={<MinusOutlined/>} shape='circle' onClick={()=>this.decreaseAmount(item.id)}/>
@@ -149,6 +149,7 @@ class Cont extends Component {
       ))
     )
   }
+  
   Total = () =>{
     const {carts} = this.state
     return(
@@ -172,7 +173,7 @@ class Cont extends Component {
             <td>
               Total: 
             </td>
-            <td colSpan='3'>
+            <td colSpan='3' style={{color: 'green', fontSize: 14}}>
               Rp {this.state.totalPrice.toLocaleString('id-ID', {minimumFractionDigits:2, maximumFractionDigits:2})}
             </td>
           </tr>
