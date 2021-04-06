@@ -1,4 +1,5 @@
 # E-commerce App
+#### React, Ant Design, Redux Thunk, json-server API
 
 How to run:
 1. run json server for listitem.json
