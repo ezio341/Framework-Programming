@@ -10,6 +10,17 @@
       "amount": 1,
       "rate": 4,
       "id": 1
+    },
+    {
+      "productid": 4,
+      "name": "KIPAS ANGIN POWER STAND MASPION 20 PW-507",
+      "price": 565000,
+      "stock": 8,
+      "desc": "● Spesifikasi: Daya: 220 V/50 Hz/80 Watt Bahan: Stainless Steel dan Besi Tebal 3 Level Kekuatan angin Ukuran: 20 Inch Rotation Swing System 90 derajat Rotary Switch Thermofuse Safety",
+      "img": "https://cf.shopee.co.id/file/1a3dd110d45c723f5fe5919c295acf65",
+      "amount": 1,
+      "rate": 4,
+      "id": 2
     }
   ]
 }

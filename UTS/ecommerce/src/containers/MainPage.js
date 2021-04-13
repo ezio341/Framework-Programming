@@ -29,7 +29,7 @@ const {SubMenu} = Menu
 class MainPage extends Component {
     state = {
         collapsed: false,
-        menuSelected: 1,
+        menuSelected: '1.1',
         layoutMarginLeft: 200
       };
     

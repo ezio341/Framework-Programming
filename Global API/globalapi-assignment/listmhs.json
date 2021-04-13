@@ -1,0 +1,40 @@
+{
+  "student": [
+    {
+      "userId": 1,
+      "id": 1618291404712,
+      "title": "",
+      "body": "",
+      "NIM": "1841720158",
+      "name": "Brian Sayudha",
+      "address": "Sawojajar",
+      "phone": "0812847288",
+      "year": "2018",
+      "status": "aktif"
+    },
+    {
+      "userId": 1,
+      "id": 1618291494967,
+      "title": "",
+      "body": "",
+      "NIM": "1841720087",
+      "name": "Arga Diaz Prawira yudha",
+      "address": "Lawang",
+      "phone": "0812946238",
+      "year": "2018",
+      "status": "aktif"
+    },
+    {
+      "userId": 1,
+      "id": 1618292100444,
+      "title": "",
+      "body": "",
+      "NIM": "122343464",
+      "name": "Eko Setyo Wijanarko",
+      "address": "Kalimantan",
+      "phone": "0817374538",
+      "year": "2018",
+      "status": "aktif"
+    }
+  ]
+}

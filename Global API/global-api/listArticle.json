@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "Workshop Amazon Web Services (AWS) Untuk Para Dosen JTI",
+      "body": "Jumat (24/1/2020), Jurusan Teknologi Infomasi Polinema. Workshop ini diadakan untuk menunjang performa dan ..."
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "Pelaksanaan Rapat Hasil Akhir Yudisium Semester Ganjil 2019/2020",
+      "body": "Jumat (17/1/2020)Kemarin, Jurusan Teknologi Infomasi Polinema. Yudisium ini diadakan untuk menentukan hasil akhir ..."
+    }
+  ]
+}
