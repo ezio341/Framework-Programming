@@ -92,7 +92,15 @@ class Content extends Component{
                 <h2>Student List Total: {this.state.listStudent.length}</h2>
                 {
                     this.state.listStudent.map(student => {
-                        return <Post key={student.id} idstd={student.id} nim = {student.NIM} name={student.name} address = {student.address} phone ={student.phone} year={student.year} status={student.status} onDelete = {(id)=>this.handleDelete(id)}/>
+                        return <Post key={student.id} 
+                                    idstd={student.id} 
+                                    nim = {student.NIM} 
+                                    name={student.name} 
+                                    address = {student.address} 
+                                    phone ={student.phone} 
+                                    year={student.year} 
+                                    status={student.status} 
+                                    onDelete = {(id)=>this.handleDelete(id)}/>
                     })
                 }
             </div>
